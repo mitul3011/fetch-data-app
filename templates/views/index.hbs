@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Fetch Data App</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    {{>navbar}}
+    
+    <div class="pricing-header px-3 py-3 pt-md-1 pb-md-1 mx-auto text-center">
+        <h1>Get Earthquake Data</h1>
+        <hr style="border: 1px solid">
+    </div>
+    <form class="pricing-header px-3 py-3 pb-md-4 mx-auto">
+      <div class="form-group">
+        <label for="inputLocation">Enter Location</label>
+        <input type="text" class="form-control" id="inputLocation" placeholder="India, Turkey, New York, ..." required autofocus>
+      </div>
+      <div class="form-group">
+        <label for="inputAlertLevel">Select Alert Level</label>
+        <select id="inputAlertLevel" class="form-control" required>
+          <option value="">Select Option</option>
+          <option value="green">Green</option>
+          <option value="yellow">Yellow</option>
+          <option value="orange">Orange</option>
+          <option value="red">Red</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="inputStartDate">Enter Start Date <br> (By default Today's date)</label>
+        <input type="date" class="form-control" id="inputStartDate">
+      </div>
+      <div class="form-group">
+        <label for="inputEndDate">Enter End Date <br> (By default Today's date)</label>
+        <input type="date" class="form-control" id="inputEndDate">
+      </div>
+      <div class="form-group">
+        <label for="inputMaxRadius">Enter Maximum Radius in KM upto which find earthquake data <br> (By default value is 100KM)</label>
+        <input type="number" class="form-control" step="0.1" id="inputMaxRadius" placeholder="100, 200, 300, ..." min="0">
+      </div>
+      <div class="form-group">
+        <label for="inputMaxMagnitude">Enter Earthquake Magnitude</label>
+        <input type="number" class="form-control" step="0.1" id="inputMaxMagnitude" placeholder="5, 5.5, 6, ..." min="0" max="10">
+      </div>
+      <p for="Error" id="errorMsg" style="color:red" hidden></p>
+      <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div id="outputDiv" class="pricing-header px-3 py-3 pt-md-1 pb-md-1 mx-auto text-center" hidden>
+      <h1>Earthquake Data</h1>
+      <hr style="border: 1px solid">
+      <h6 id="outputErr" style="color: red;" hidden></h6>
+      <ul class="list-group list-group-light mb-3" id="searchList" hidden>
+      </ul>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/js/earthquakedata.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
